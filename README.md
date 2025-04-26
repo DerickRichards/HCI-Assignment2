@@ -28,12 +28,12 @@ The fisheye menu displays all 10 usability heuristics at once. When a user hover
 3. Hover over or click on any of the menu items (UH#1 through UH#10) to see the fisheye effect and detailed information
 
 ## Group Members
-[Eugene Obunde	SCT212-0195/2022
-Kelvin Musyoki	SCT212-0712/2022
-Caroline Thomas	SCT212-0519/2021
-Ruth Gitau   	SCT212-0102/2022
-Issa Saitemu	SCT212-0447/2022
-Derick Richard	SCT212-0192/2022]
+1. Eugene Obunde	SCT212-0195/2022
+2. Kelvin Musyoki	SCT212-0712/2022
+3. Caroline Thomas	SCT212-0519/2021
+4. Ruth Gitau   	SCT212-0102/2022
+5. Issa Saitemu	    SCT212-0447/2022
+6. Derick Richard	SCT212-0192/2022
 
 ## Submission Date
 Monday, 28th April 2025
