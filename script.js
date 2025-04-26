@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Reset when mouse leaves the entire menu
-    // fisheyeMenu.addEventListener('mouseleave', function() {
-    //     resetAllItems();
-    // });
+    fisheyeMenu.addEventListener('mouseleave', function() {
+        resetAllItems();
+    });
     
     // Initialize all items in reset state
     resetAllItems();
