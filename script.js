@@ -37,10 +37,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Reset when mouse leaves the entire menu
-    fisheyeMenu.addEventListener('mouseleave', function() {
-        resetAllItems();
-    });
+    // fisheyeMenu.addEventListener('mouseleave', function() {
+    //     resetAllItems();
+    // });
     
     // Initialize all items in reset state
     resetAllItems();
+
+    //onclick event for menu items make remain active
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            resetAllItems();
+            this.classList.add('active');
+            this.style.transform = 'scale(1.5)';
+            this.style.zIndex = '10';
+            
+            // Show content with transition
+            const content = this.querySelector('.content');
+            content.style.display = 'block';
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 50);
+        });
+    });
 });
