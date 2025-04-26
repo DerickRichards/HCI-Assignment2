@@ -1,78 +1,46 @@
+// Fisheye menu script - handles enlarging items on hover
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.menu-item');
-    // Loop through menu items and the children of the menu items Increase the size on hover of one menu item
-    menuItems.forEach(item => {
-        item.addEventListener('mouseover', function() {
-            this.classList.add('hover');
-        });
-        item.addEventListener('mouseout', function() {
-            this.classList.remove('hover');
-        });
-    });
+    const fisheyeMenu = document.getElementById('fisheye-menu');
     
-    // Function to handle click events
-    function handleClick(e) {
-        // Remove active class from all items
+    // Set initial state for all items
+    function resetAllItems() {
         menuItems.forEach(item => {
             item.classList.remove('active');
+            item.style.transform = 'scale(1)';
+            item.style.zIndex = '1';
+            
+            // Hide content
+            const content = item.querySelector('.content');
+            content.style.opacity = '0';
+            content.style.display = 'none';
         });
-        
-        // Add active class to clicked item
-        this.classList.add('active');
-        
-        // Prevent the click from triggering other events
-        e.stopPropagation();
     }
     
-    // Add click event listeners to all menu items
+    // Handle hover events for each menu item
     menuItems.forEach(item => {
-        item.addEventListener('click', handleClick);
-    });
-    
-    // Click outside to collapse all (optional)
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.menu-item')) {
-            menuItems.forEach(item => {
-                item.classList.remove('active');
-            });
-        }
-    });
-    
-    // Add keyboard navigation (accessibility)
-    let currentFocus = -1;
-    
-    document.addEventListener('keydown', function(e) {
-        // Only handle arrow keys if menu is in focus
-        if (document.activeElement.closest('.fisheye-menu')) {
-            switch(e.key) {
-                case 'ArrowRight':
-                case 'ArrowDown':
-                    e.preventDefault();
-                    currentFocus = (currentFocus + 1) % menuItems.length;
-                    menuItems[currentFocus].focus();
-                    break;
-                case 'ArrowLeft':
-                case 'ArrowUp':
-                    e.preventDefault();
-                    currentFocus = (currentFocus - 1 + menuItems.length) % menuItems.length;
-                    menuItems[currentFocus].focus();
-                    break;
-                case 'Enter':
-                case ' ':
-                    e.preventDefault();
-                    menuItems[currentFocus].click();
-                    break;
-            }
-        }
-    });
-    
-    // Add tabindex for keyboard navigation
-    menuItems.forEach((item, index) => {
-        item.setAttribute('tabindex', '0');
-        
-        // Focus management
-        item.addEventListener('focus', function() {
-            currentFocus = index;
+        item.addEventListener('mouseenter', function() {
+            resetAllItems();
+            
+            // Activate and scale up the hovered item
+            this.classList.add('active');
+            this.style.transform = 'scale(1.5)';
+            this.style.zIndex = '10';
+            
+            // Show content with transition
+            const content = this.querySelector('.content');
+            content.style.display = 'block';
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 50);
         });
     });
+    
+    // Reset when mouse leaves the entire menu
+    fisheyeMenu.addEventListener('mouseleave', function() {
+        resetAllItems();
+    });
+    
+    // Initialize all items in reset state
+    resetAllItems();
 });

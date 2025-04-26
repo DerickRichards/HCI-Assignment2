@@ -1,140 +1,115 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Basic page styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
     color: #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 1000px;
+    padding: 2rem 0 1rem;
+    background-color: #2c3e50;
+    color: white;
 }
 
 h1 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 2.2rem;
+    margin: 0;
+    font-size: 2.5rem;
 }
 
-p.description {
-    color: #7f8c8d;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+.description {
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
 .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.instructions {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    max-width: 1000px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
 }
 
 /* Fisheye Menu Styles */
 .fisheye-menu {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    overflow: visible;
     position: relative;
-}
-
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-    .fisheye-menu {
-        flex-direction: column;
-    }
+    height: 180px;
 }
 
 .menu-item {
-    flex: 1;
-    background-color: #ecf0f1;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
     position: relative;
-    min-height: 60px;
+    margin: 0 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    border: 2px solid transparent;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    overflow: visible;
+}
+
+.menu-item:hover {
+    background-color: #2980b9;
 }
 
 .menu-item .label {
-    color: #34495e;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    transition: opacity 0.3s ease;
 }
 
 .menu-item .content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    width: 250px;
     opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    margin-top: 0;
-    transform: translateY(-10px);
+    display: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    text-align: center;
 }
 
 .menu-item .content h3 {
-    color: #2980b9;
-    margin: 10px 0;
-    font-size: 1.2rem;
-}
-
-.menu-item .content p {
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-top: 8px;
-}
-
-
-
-/* Footer styles */
-footer {
-    text-align: center;
-    margin-top: auto;
-    padding: 20px 0;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-/* Instructions section */
-.instructions {
-    margin-top: 30px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid #3498db;
-}
-
-.instructions h2 {
+    margin-top: 0;
     color: #2c3e50;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
-.instructions p {
-    color: #555;
-    line-height: 1.5;
+/* Active state */
+.menu-item.active {
+    background-color: #e74c3c;
 }
