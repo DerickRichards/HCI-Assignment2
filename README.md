@@ -27,25 +27,13 @@ The fisheye menu displays all 10 usability heuristics at once. When a user hover
 2. Open `index.html` in any modern web browser
 3. Hover over or click on any of the menu items (UH#1 through UH#10) to see the fisheye effect and detailed information
 
-## Implementation Details
-
-### HTML
-The HTML structure includes a header, the fisheye menu with 10 items, an instructions section, and a footer. Each menu item contains both a label (UH#1 through UH#10) and content that becomes visible when the item is active.
-
-### CSS
-The CSS provides styling for the fisheye effect using flex properties and transitions. When a menu item is hovered over or clicked, it expands while the other items remain visible but smaller.
-
-### JavaScript
-The JavaScript handles the click events, adds keyboard navigation for accessibility, and manages the active states of the menu items.
-
-## Accessibility
-This implementation includes keyboard navigation to ensure the menu is accessible to all users:
-- Tab to focus on menu items
-- Arrow keys to navigate between items
-- Enter or Space to activate an item
-
 ## Group Members
-[Add your group members' names here]
+[Eugene Obunde	SCT212-0195/2022
+Kelvin Musyoki	SCT212-0712/2022
+Caroline Thomas	SCT212-0519/2021
+Ruth Gitau   	SCT212-0102/2022
+Issa Saitemu	SCT212-0447/2022
+Derick Richard	SCT212-0192/2022]
 
 ## Submission Date
-Wednesday, 23rd April 2025
+Monday, 28th April 2025
